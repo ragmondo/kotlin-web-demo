@@ -1,0 +1,152 @@
+buildscript {
+    repositories {
+        mavenCentral()
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
+    }
+    dependencies {
+        classpath 'org.jetbrains.kotlin:kotlin-gradle-plugin:1.0.0-beta-1103'
+        classpath "com.moowork.gradle:gradle-node-plugin:0.11"
+        classpath "gradle.plugin.com.github.jk1:tcdeps:0.8"
+    }
+}
+
+configure(subprojects.findAll { it.name != 'frontend' }) {
+    apply plugin: 'java'
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        compile 'commons-logging:commons-logging:1.2'
+        compile 'com.fasterxml.jackson.core:jackson-databind:2.6.3'
+    }
+    sourceCompatibility = 1.7
+    targetCompatibility = 1.7
+}
+
+project(':web-server') {
+    apply plugin: 'war'
+    dependencies {
+        compile project(':common')
+        compile 'org.scribe:scribe:1.3.7'
+        compile 'com.intellij:annotations:12.0'
+        compile 'org.twitter4j:twitter4j-core:4.0.4'
+        compile 'com.nimbusds:nimbus-jose-jwt:3.9'
+        compile 'org.pegdown:pegdown:1.5.0'
+        runtime 'org.tuckey:urlrewritefilter:4.0.4'
+        providedCompile 'javax.servlet:servlet-api:2.4'
+    }
+
+    war {
+        dependsOn ':web-server:frontend:build'
+        from("${project(':web-server:frontend').projectDir}/static") {
+            into 'static'
+        }
+        from("${project(':web-server:frontend').projectDir}/index.html")
+        from("$projectDir/examples") {
+            into 'examples'
+        }
+        from("$projectDir/helpWords.xml")
+        from("${project(':common').projectDir}/src/main/resources/kotlin-build.txt")
+    }
+
+}
+
+project(':web-server:frontend') {
+    apply plugin: 'kotlin2js'
+    apply plugin: 'com.moowork.node'
+
+    repositories {
+        mavenCentral()
+        maven {
+            url "http://dl.bintray.com/kotlinx/kotlinx"
+        }
+    }
+
+    dependencies {
+        compile 'org.jetbrains.kotlin:kotlin-js-library:1.0.0-beta-1103'
+        compile "org.jetbrains.kotlinx:kotlinx.html.js:0.4.41"
+    }
+
+    compileKotlin2Js.kotlinOptions.outputFile = "${projectDir}/static/kotlin.web.demo.frontend.js"
+
+
+    task bowerInstall(type: NodeTask,dependsOn: npmInstall){
+        script = file('node_modules/bower/bin/bower')
+        args = ['install']
+    }
+    build.dependsOn('bowerInstall')
+
+    node {
+        version='4.0.0'
+        download = true
+    }
+
+    task copyJsFilesFromDependencies(dependsOn: build) {
+        configurations.compile.each { File file ->
+            copy {
+                includeEmptyDirs = false
+
+                from zipTree(file.absolutePath)
+                into "${projectDir}/static/lib"
+                include { fileTreeElement ->
+                    def path = fileTreeElement.path
+                    path.endsWith(".js") && !path.endsWith(".meta.js") &&
+                            (path.startsWith("META-INF/resources/") || !path.startsWith("META-INF/"))
+                }
+            }
+        }
+    }
+}
+
+project(':compile-server') {
+    apply plugin: 'com.github.jk1.tcdeps'
+    apply plugin: 'war'
+    def teamcity = 'https://teamcity.jetbrains.com'
+    def locator = "buildType:bt345,tags:try.kotlinlang.org,branch:default:any"
+    def rev = ""
+    (new URL("${teamcity}/guestAuth/app/rest/builds/${locator}/number")).openStream().withReader {
+        rev = it.readLine()
+    }
+
+    project(':common').file('src/main/resources/kotlin-build.txt').withWriter {
+        it.append(rev);
+    }
+
+    repositories {
+        teamcityServer {
+            url = teamcity
+        }
+    }
+
+    dependencies {
+        compile project(':common')
+        compile project(':compile-server:executors')
+        compile tc("bt345:$rev:internal/kotlin-compiler-before-shrink.jar")
+        compile tc("bt345:$rev:kotlin-plugin-${rev}.zip!Kotlin/lib/kotlin-plugin.jar")
+        compile tc("bt345:$rev:kotlin-plugin-${rev}.zip!Kotlin/lib/kotlin-reflect.jar")
+        compile tc("bt345:$rev:kotlin-plugin-${rev}.zip!Kotlin/lib/kotlin-runtime.jar")
+        providedCompile 'javax.servlet:servlet-api:2.4'
+    }
+}
+
+project(':compile-server:executors') {
+    apply plugin: 'com.github.jk1.tcdeps'
+    def teamcity = 'https://teamcity.jetbrains.com'
+    def locator = "buildType:bt345,tags:try.kotlinlang.org,branch:default:any"
+    def rev = ""
+    (new URL("${teamcity}/guestAuth/app/rest/builds/${locator}/number")).openStream().withReader {
+        rev = it.readLine()
+    }
+    repositories {
+        teamcityServer {
+            url = teamcity
+        }
+    }
+
+    dependencies {
+        compile tc("bt345:$rev:internal/kotlin-compiler-before-shrink.jar")
+        compile 'junit:junit:4.12'
+    }
+}

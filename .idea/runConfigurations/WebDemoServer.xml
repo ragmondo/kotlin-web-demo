@@ -1,17 +1,17 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="WebDemoServer" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 7.0.57" ALTERNATIVE_JRE_ENABLED="false" ALTERNATIVE_JRE_PATH="">
+  <configuration default="false" name="WebDemoServer" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 7.0.57" ALTERNATIVE_JRE_ENABLED="false">
     <option name="UPDATING_POLICY" value="restart-server" />
     <deployment>
-      <artifact name="WebDemoWar">
+      <file path="$PROJECT_DIR$/web-server/build/libs/web-server.war">
         <settings>
           <option name="CONTEXT_PATH" value="/" />
         </settings>
-      </artifact>
-      <artifact name="WebDemoBackend">
+      </file>
+      <file path="$PROJECT_DIR$/compile-server/build/libs/compile-server.war">
         <settings>
           <option name="CONTEXT_PATH" value="/backend" />
         </settings>
-      </artifact>
+      </file>
     </deployment>
     <server-settings>
       <option name="BASE_DIRECTORY_NAME" value="Unnamed_WebView_3" />
@@ -75,10 +75,9 @@
       </SHUTDOWN>
     </ConfigurationWrapper>
     <method>
-      <option name="BuildArtifacts" enabled="true">
-        <artifact name="WebDemoWar" />
-        <artifact name="WebDemoBackend" />
-      </option>
+      <option name="Make" enabled="false" />
+      <option name="Gradle.BeforeRunTask" enabled="true" tasks="war" externalProjectPath="$PROJECT_DIR$/web-server" vmOptions="" scriptParameters="" />
+      <option name="Gradle.BeforeRunTask" enabled="true" tasks="war" externalProjectPath="$PROJECT_DIR$/compile-server" vmOptions="" scriptParameters="" />
     </method>
   </configuration>
 </component>

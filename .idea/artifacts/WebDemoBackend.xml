@@ -22,11 +22,11 @@
           <element id="library" level="project" name="commons-logging-1.2" />
         </element>
       </element>
-      <element id="dir-copy" path="$PROJECT_DIR$/kotlin.web.demo.backend/web" />
+      <element id="dir-copy" path="$PROJECT_DIR$/compile-server/web" />
       <element id="directory" name="js">
-        <element id="dir-copy" path="$PROJECT_DIR$/kotlin.web.demo.common/resources/js" />
+        <element id="dir-copy" path="$PROJECT_DIR$/common/resources/js" />
       </element>
-      <element id="file-copy" path="$PROJECT_DIR$/kotlin.web.demo.executors/executors.policy.template" />
+      <element id="file-copy" path="$PROJECT_DIR$/compile-server/executors/src/main/resources/executors.policy.template" />
     </root>
   </artifact>
 </component>

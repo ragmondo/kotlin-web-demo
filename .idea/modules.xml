@@ -2,13 +2,12 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/kotlin.web.demo.iml" filepath="$PROJECT_DIR$/kotlin.web.demo.iml" />
-      <module fileurl="file://$PROJECT_DIR$/kotlin.web.demo.backend/kotlin.web.demo.backend.iml" filepath="$PROJECT_DIR$/kotlin.web.demo.backend/kotlin.web.demo.backend.iml" />
-      <module fileurl="file://$PROJECT_DIR$/kotlin.web.demo.common/kotlin.web.demo.common.iml" filepath="$PROJECT_DIR$/kotlin.web.demo.common/kotlin.web.demo.common.iml" />
-      <module fileurl="file://$PROJECT_DIR$/kotlin.web.demo.executors/kotlin.web.demo.executors.iml" filepath="$PROJECT_DIR$/kotlin.web.demo.executors/kotlin.web.demo.executors.iml" />
-      <module fileurl="file://$PROJECT_DIR$/kotlin.web.demo.frontend/kotlin.web.demo.frontend.iml" filepath="$PROJECT_DIR$/kotlin.web.demo.frontend/kotlin.web.demo.frontend.iml" />
-      <module fileurl="file://$PROJECT_DIR$/kotlin.web.demo.server/kotlin.web.demo.server.iml" filepath="$PROJECT_DIR$/kotlin.web.demo.server/kotlin.web.demo.server.iml" />
-      <module fileurl="file://$PROJECT_DIR$/kotlin.web.demo.test/kotlin.web.demo.test.iml" filepath="$PROJECT_DIR$/kotlin.web.demo.test/kotlin.web.demo.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/common/common.iml" filepath="$PROJECT_DIR$/common/common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/compile-server/compile-server.iml" filepath="$PROJECT_DIR$/compile-server/compile-server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/compile-server/executors/executors.iml" filepath="$PROJECT_DIR$/compile-server/executors/executors.iml" />
+      <module fileurl="file://$PROJECT_DIR$/web-server/frontend/frontend.iml" filepath="$PROJECT_DIR$/web-server/frontend/frontend.iml" />
+      <module fileurl="file://$PROJECT_DIR$/kotlin-web-demo.iml" filepath="$PROJECT_DIR$/kotlin-web-demo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/web-server/web-server.iml" filepath="$PROJECT_DIR$/web-server/web-server.iml" />
     </modules>
   </component>
 </project>

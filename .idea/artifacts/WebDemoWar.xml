@@ -28,15 +28,15 @@
         <element id="module-output" name="kotlin.web.demo.frontend" />
       </element>
       <element id="directory" name="examples">
-        <element id="dir-copy" path="$PROJECT_DIR$/examples" />
+        <element id="dir-copy" path="$PROJECT_DIR$/web-server/examples" />
       </element>
-      <element id="file-copy" path="$PROJECT_DIR$/help/helpWords.xml" />
+      <element id="file-copy" path="$PROJECT_DIR$/web-server/helpWords.xml" />
       <element id="directory" name="js">
-        <element id="dir-copy" path="$PROJECT_DIR$/kotlin.web.demo.common/resources/js" />
+        <element id="dir-copy" path="$PROJECT_DIR$/common/resources/js" />
       </element>
       <element id="dir-copy" path="$PROJECT_DIR$/kotlin.web.demo.server/web" />
       <element id="file-copy" path="$PROJECT_DIR$/lib/kotlin-plugin/Kotlin/kotlinc/build.txt" />
-      <element id="file-copy" path="$PROJECT_DIR$/kotlin.web.demo.frontend/index.html" />
+      <element id="file-copy" path="$PROJECT_DIR$/web-server/frontend/index.html" />
     </root>
   </artifact>
 </component>

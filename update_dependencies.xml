@@ -87,7 +87,7 @@
             <unzip src="${unzipped.kotlin.plugin}/Kotlin/kotlinc/lib/kotlin-jslib.jar"
                    dest="${unzipped.kotlin.plugin}/jslib"/>
             <copy file="${unzipped.kotlin.plugin}/jslib/kotlin.js"
-                  todir="kotlin.web.demo.frontend/static"/>
+                  todir="web-server/frontend/static"/>
             <delete dir="${unzipped.kotlin.plugin}/jslib"/>
 
             <j2kConverter/>

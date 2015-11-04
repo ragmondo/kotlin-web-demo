@@ -3,7 +3,7 @@
     <property name="tomcat.home" value="apache-tomcat"/>
 
     <target name="downloadTomcat" depends="tomcat.check" unless="tomcat.exists">
-        <property name="tomcat.version" value="7.0.62"/>
+        <property name="tomcat.version" value="7.0.65"/>
         <property name="tomcatMirror" value="http://apache-mirror.rbc.ru"/>
         <property name="tomcatMirrorPath" value="pub/apache/tomcat/tomcat-7/v${tomcat.version}/bin"/>
         <property name="tomcatName" value="apache-tomcat-${tomcat.version}"/>
@@ -20,7 +20,7 @@
     </target>
 
     <target name="getMySQLConnector">
-        <property name="connector.version" value="5.1.34"/>
+        <property name="connector.version" value="5.1.37"/>
         <get src="http://cdn.mysql.com/Downloads/Connector-J/mysql-connector-java-${connector.version}.zip"
              dest="mysql-connector-java.zip"/>
         <unzip src="mysql-connector-java.zip" dest="">
