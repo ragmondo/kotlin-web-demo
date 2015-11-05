@@ -1,2 +1,3 @@
+rootProject.name = 'kotlin-web-demo'
 
 include 'web-server', 'web-server:frontend', 'compile-server', 'common', 'compile-server:executors'
