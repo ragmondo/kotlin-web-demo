@@ -6,9 +6,8 @@ statistics
 .idea/workspace.xml
 kotlin.web.demo.test.applet/kotlin.web.demo.test.applet.iml
 kotlin.web.demo.applet/kotlin.web.demo.applet.iml
-kotlin.web.demo.server/web/META-INF/context.xml
+context.xml
 kotlin.web.demo.executors/executors.policy
-kotlin.web.demo.backend/web/META-INF/context.xml
 kotlin.web.demo.core/resources
 kotlin.web.demo.common/resources/js
 kotlin.web.demo.frontend/node
