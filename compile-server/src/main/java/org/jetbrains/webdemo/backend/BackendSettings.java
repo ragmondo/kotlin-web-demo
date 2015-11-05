@@ -42,7 +42,7 @@ public class BackendSettings {
     public static void setKotlinLibsDir(String libsDir){
         KOTLIN_RUNTIME = libsDir + File.separator + "kotlin-runtime-" + CommonSettings.KOTLIN_VERSION + ".jar";
         KOTLIN_REFLECT = libsDir + File.separator + "kotlin-reflect-" + CommonSettings.KOTLIN_VERSION + ".jar";
-        KOTLIN_COMPILER = libsDir + File.separator + "kotlin-compiler-before-shrink-" + CommonSettings.KOTLIN_VERSION + ".jar";
+        KOTLIN_COMPILER = libsDir + File.separator + "kotlin-compiler-before-shrink" + CommonSettings.KOTLIN_VERSION + ".jar";
     }
 
 }

@@ -110,7 +110,7 @@ public class EnvironmentManager {
 
         BackendSettings.JAVA_HOME = files.iterator().next().getParentFile().getParentFile().getParentFile().getAbsolutePath();
 
-        File junit = new File(BackendSettings.LIBS_DIR + File.separator + "junit-4.12.jar");
+        File junit = new File(BackendSettings.LIBS_DIR + File.separator + "junit-4.10.jar");
 
         if (junit.exists()) {
             classpath.add(junit);

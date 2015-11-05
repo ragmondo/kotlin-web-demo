@@ -350,7 +350,7 @@ public class JavaRunner {
                 File.pathSeparator + BackendSettings.LIBS_DIR + File.separator + "executors.jar");
         if (sessionInfo.getRunConfiguration().equals(BackendSessionInfo.RunConfiguration.JUNIT)) {
             builder.add(classpath +
-                            File.pathSeparator + BackendSettings.LIBS_DIR + File.separator + "junit-4.12.jar" +
+                            File.pathSeparator + BackendSettings.LIBS_DIR + File.separator + "junit-4.10.jar" +
                             File.pathSeparator + BackendSettings.LIBS_DIR + File.separator + "jackson-databind-2.6.3.jar" +
                             File.pathSeparator + BackendSettings.LIBS_DIR + File.separator + "jackson-core-2.6.3.jar" +
                             File.pathSeparator + BackendSettings.LIBS_DIR + File.separator + "jackson-annotations-2.6.0.jar" +

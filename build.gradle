@@ -49,6 +49,9 @@ project(':web-server') {
         }
         from("$projectDir/helpWords.xml")
         from("${project(':common').projectDir}/src/main/resources/kotlin-build.txt")
+        from("${project(':compile-server').projectDir}/jsLib/kotlin.js"){
+            into '/static/'
+        }
     }
 
 }
@@ -120,6 +123,10 @@ project(':compile-server') {
         }
     }
 
+    configurations {
+        jsLib
+    }
+
     dependencies {
         compile project(':common')
         compile project(':compile-server:executors')
@@ -127,7 +134,22 @@ project(':compile-server') {
         compile tc("bt345:$rev:kotlin-plugin-${rev}.zip!Kotlin/lib/kotlin-plugin.jar")
         compile tc("bt345:$rev:kotlin-plugin-${rev}.zip!Kotlin/lib/kotlin-reflect.jar")
         compile tc("bt345:$rev:kotlin-plugin-${rev}.zip!Kotlin/lib/kotlin-runtime.jar")
+        jsLib tc("bt345:$rev:kotlin-plugin-${rev}.zip!Kotlin/kotlinc/lib/kotlin-jslib.jar")
         providedCompile 'javax.servlet:servlet-api:2.4'
+    }
+
+    task extractKotlinJS(type: Copy) {
+        from {
+            configurations.jsLib.collect { zipTree(it) }
+        }
+        into "$projectDir/jsLib/"
+    }
+
+    war.dependsOn 'extractKotlinJS'
+    war {
+        from ("$projectDir/jsLib"){
+            into 'jsLib'
+        }
     }
 }
 
@@ -147,6 +169,6 @@ project(':compile-server:executors') {
 
     dependencies {
         compile tc("bt345:$rev:internal/kotlin-compiler-before-shrink.jar")
-        compile 'junit:junit:4.12'
+        compile 'junit:junit:4.10'
     }
 }
