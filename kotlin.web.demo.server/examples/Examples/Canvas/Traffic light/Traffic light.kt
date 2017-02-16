@@ -4,7 +4,6 @@
  */
 package traffic
 
-import java.util.ArrayList
 import jquery.*
 import org.w3c.dom.CanvasRenderingContext2D
 import org.w3c.dom.HTMLCanvasElement
@@ -12,6 +11,9 @@ import org.w3c.dom.HTMLElement
 import org.w3c.dom.HTMLImageElement
 import kotlin.browser.document
 import kotlin.browser.window
+import kotlin.js.Math
+import kotlin.js.Date
+
 
 fun getImage(path: String): HTMLImageElement {
     val image = window.document.createElement("img") as HTMLImageElement
@@ -185,7 +187,7 @@ class TrafficLight(override var pos: Vector, val direction: String, val startCol
     var timer = Timer(Vector(pos.x + 6, pos.y + 12))
     var currentColor = startColor;
     var isForceColorChange = false
-    var changeColorForward = (startColor == "red")
+    var shouldChangeColorForward = (startColor == "red")
 
     init {
         list.add(TrafficLightItem(v(pos.x, pos.y), PATH_TO_IMAGES + "red_color.png"))
@@ -221,11 +223,11 @@ class TrafficLight(override var pos: Vector, val direction: String, val startCol
     }
 
     fun changeColor() {
-        if (changeColorForward) changeColorForward() else changeColorBackward()
+        if (shouldChangeColorForward) changeColorForward() else changeColorBackward()
     }
 
     fun changeColorForward() {
-        changeColorForward = false
+        shouldChangeColorForward = false
         currentColor = "yellow"
         window.setTimeout({
             if (!isForceColorChange) timer.resetTimer() else isForceColorChange = false
@@ -236,7 +238,7 @@ class TrafficLight(override var pos: Vector, val direction: String, val startCol
 
 
     fun changeColorBackward() {
-        changeColorForward = true
+        shouldChangeColorForward = true
         currentColor = "green_flash"
         window.setTimeout({
             currentColor = "yellow"
@@ -442,7 +444,7 @@ class CanvasState(val canvas: HTMLCanvasElement) {
         var element: HTMLElement? = canvas
         while (element != null) {
             val el: HTMLElement = element
-            offset += Vector(el.offsetLeft, el.offsetTop)
+            offset += Vector(el.offsetLeft.toDouble(), el.offsetTop.toDouble())
             element = el.offsetParent as HTMLElement?
         }
         return Vector(e.pageX, e.pageY) - offset

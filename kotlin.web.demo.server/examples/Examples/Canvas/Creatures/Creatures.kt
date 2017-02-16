@@ -5,11 +5,11 @@
  */
 package creatures
 
-import java.util.ArrayList
 import jquery.*
 import org.w3c.dom.*
 import kotlin.browser.document
 import kotlin.browser.window
+import kotlin.js.Math
 
 
 fun getImage(path: String): HTMLImageElement {
@@ -259,7 +259,7 @@ class CanvasState(val canvas: HTMLCanvasElement) {
         var element: HTMLElement? = canvas
         while (element != null) {
             val el: HTMLElement = element
-            offset += Vector(el.offsetLeft, el.offsetTop)
+            offset += Vector(el.offsetLeft.toDouble(), el.offsetTop.toDouble())
             element = el.offsetParent as HTMLElement?
         }
         return Vector(e.pageX, e.pageY) - offset
