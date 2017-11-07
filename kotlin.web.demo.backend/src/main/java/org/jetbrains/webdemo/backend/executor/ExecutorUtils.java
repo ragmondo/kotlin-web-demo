@@ -17,7 +17,6 @@
 package org.jetbrains.webdemo.backend.executor;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.jetbrains.webdemo.CommonSettings;
 import org.jetbrains.webdemo.ErrorWriter;
 import org.jetbrains.webdemo.backend.BackendSettings;
 import org.jetbrains.webdemo.backend.executor.result.ExecutionResult;
@@ -37,7 +36,8 @@ public class ExecutorUtils {
             Paths.get(BackendSettings.EXECUTORS_LIBS_DIR, "kotlin.web.demo.executors.jar"),
             Paths.get(BackendSettings.EXECUTORS_LIBS_DIR, "jackson-databind-2.7.4.jar"),
             Paths.get(BackendSettings.EXECUTORS_LIBS_DIR, "jackson-core-2.7.4.jar"),
-            Paths.get(BackendSettings.EXECUTORS_LIBS_DIR, "jackson-annotations-2.7.4.jar")
+            Paths.get(BackendSettings.EXECUTORS_LIBS_DIR, "jackson-annotations-2.7.4.jar"),
+            Paths.get(BackendSettings.EXECUTORS_LIBS_DIR, "corda-core-1.0.0.jar")
     );
     private static Path junit = Paths.get(BackendSettings.EXECUTORS_LIBS_DIR, "junit-4.12.jar");
     private static Path hamcrest = Paths.get(BackendSettings.EXECUTORS_LIBS_DIR, "hamcrest-core-1.3.jar");
