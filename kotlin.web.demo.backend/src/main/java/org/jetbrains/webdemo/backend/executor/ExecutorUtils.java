@@ -17,7 +17,6 @@
 package org.jetbrains.webdemo.backend.executor;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.jetbrains.webdemo.CommonSettings;
 import org.jetbrains.webdemo.ErrorWriter;
 import org.jetbrains.webdemo.backend.BackendSettings;
 import org.jetbrains.webdemo.backend.executor.result.ExecutionResult;
@@ -77,6 +76,14 @@ public class ExecutorUtils {
             }
 
             ProgramOutput output = executorBuilder.build().execute();
+
+            System.out.println("*********");
+            System.out.println(output);
+            System.out.println(output.getErrorOutput());
+            System.out.println(output.getStandardOutput());
+            System.out.println("*********");
+
+
             return parseOutput(output.getStandardOutput(), isJunit);
         } finally {
             try {

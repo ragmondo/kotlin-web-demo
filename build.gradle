@@ -198,6 +198,8 @@ project("kotlin.web.demo.backend") {
 
     dependencies {
 
+        // RAG Note.
+        // Uncommenting the below enables corda libraries to be included for syntax parsing, but then introduces "output error"
 /*
         compile "net.corda:corda-core:$corda_release_version"
 
@@ -209,6 +211,8 @@ project("kotlin.web.demo.backend") {
         compile "net.corda:corda:$corda_release_version"
         compile "net.corda:corda-webserver:$corda_release_version"
 */
+        // RAG Note:
+        // Uncommenting below gives the crashell error
        // compile "net.corda:corda-test-utils:$corda_release_version" // -> gives crash error
        // compile "net.corda:corda-node-driver:$corda_release_version"
 
@@ -243,7 +247,7 @@ project("kotlin.web.demo.backend") {
 project("kotlin.web.demo.executors") {
     dependencies {
         compile group: 'junit', 'name': 'junit', 'version': '4.12'
-      //  compile "net.corda:corda-core:$corda_release_version"
+        // compile "net.corda:corda-core:$corda_release_version"
     }
 
     task copyToLib(type: Copy) {
