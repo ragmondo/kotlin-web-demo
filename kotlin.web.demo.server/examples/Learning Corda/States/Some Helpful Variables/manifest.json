@@ -1,0 +1,12 @@
+{
+    "name": "Some Helpful Variables",
+    "files": [
+        {
+            "filename": "MeetAliceAndBob.kt",
+            "modifiable": "true"
+        }
+    ],
+    "args": "",
+    "confType": "java",
+    "expectedOutput": "Hello, world!</br>"
+}
