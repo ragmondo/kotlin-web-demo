@@ -8,5 +8,5 @@
     ],
     "args": "",
     "confType": "java",
-    "expectedOutput": "Hello, world!</br>"
+    "expectedOutput": "IOUState(data=This is where you would put data in relevant to this instance of a state.)</br>"
 }

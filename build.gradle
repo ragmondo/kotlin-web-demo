@@ -22,6 +22,7 @@ buildscript {
     ext.corda_release_version = '1.0.0'
     ext.corda_gradle_plugins_version = '1.0.0'
     ext.quasar_version = '0.7.6'
+    ext.bouncycastle_version = '1.57'
 
  //   ext.jackson_version_kwd = '2.7.4'
     ext.jackson_version_kwd = '2.8.5'
@@ -242,9 +243,14 @@ project("kotlin.web.demo.backend") {
         // compile "net.corda:corda-test-utils:$corda_release_version" // -> gives crash error
         compile "net.corda:corda-node-driver:$corda_release_version"
 
+       // compile "org.bouncycastle:bcprov-jdk15on:$bouncycastle_version"
+        //compile "org.bouncycastle:bcpkix-jdk15on:$bouncycastle_version"
 
         compile project(":kotlin.web.demo.backend:compilers")
         compile project(":kotlin.web.demo.executors")
+
+
+
         providedCompile group: 'javax.servlet', name: 'javax.servlet-api', version: '3.0.1'
     }
 

@@ -4,6 +4,7 @@
     "examples": [
         "My First State",
         "Some helpful variables",
-        "Linear State"
+        "Linear State",
+        "Ownable State"
     ]
 }

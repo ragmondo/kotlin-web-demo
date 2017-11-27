@@ -20,31 +20,32 @@ fun main(args: Array<String>) {
 
 // ALICE and BOB are actually Corda [Party] objects.
 // Whenever you want to interact with another network participant, you'll using this datatype.
-// But for testing purposes, we've provided a few for you.
+// But for testing purposes, we've provided a few pre-made parties for you.
 
-    // TODO: RG - fix bouncy castle
-
-//    println("Hi, I'm ${ALICE.name.organisation}")
-//    println("And I'm ${BOB.name.organisation}")
+    println("Hi, I'm ${ALICE.name.organisation}")
+    println("And I'm ${BOB.name.organisation}")
 
 // We're not going to delve too deeply into what exactly is meaning of £100 or $100 in a distributed ledger
 // but for getting started, you can use these helpful kotlin extensions to create something that represents cash
 
-    println("Some sample built in currencies: ${100.POUNDS} or ${100.DOLLARS}")
+    one_hundred_pounds = 100.POUNDS
+    two_hundred_dollars = 200.DOLLARS
+
+    println("Some sample built in currencies: $one_hundred_pounds or $two_hundred_dollars")
 
 // There are other ways to create these as well...
-// Note that we denominate to the cent / penny
+// Important note (that I guarantee you'll forget - I know I always do).
+// --> When using this constructor, we denominate to the cent / penny
 
     val five_pounds = Amount(500, GBP)
-    val one_dollars = Amount(100, USD)
+    val one_dollar = Amount(100, USD)
     val two_dollars = Amount(200, USD)
 
-// Obviously, you can't add mismatching currencies (uncomment the line below and run to try).
-// println(five_pounds + one_dollars)
+// Obviously, you can't add mismatching currencies (uncomment the line below and run this to try if you don't believe me).
+// println(five_pounds + one_dollar)
 
 // But adding the same currency type is possible
     println(one_dollars + two_dollars)
-
 
 }
 
