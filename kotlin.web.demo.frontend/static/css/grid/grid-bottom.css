@@ -57,7 +57,7 @@
 .ui-tabs .ui-tabs-nav li.ui-state-active {
     margin: 0;
     padding: 0 6px;
-    background-color: #cfcfcf;
+    background-color: rgb(57, 63, 65);
 }
 
 .ui-tabs .ui-tabs-panel {
@@ -76,7 +76,8 @@
 .ui-tabs .ui-tabs-nav li {
     font-size: 14px;
     /*background-color: #f0f0f0;*/
-    background-color: #cccccc;
+    background-color: #000;
+    color: #fff important!;
     padding: 0 6px;
     line-height: 22px;
     border: 0 solid #969696;
@@ -98,12 +99,14 @@
 
 .ui-tabs .ui-tabs-nav li.ui-tabs-active .ui-tabs-anchor {
     cursor: pointer;
+    color: #fff;
 }
 
 .ui-tabs .ui-tabs-nav .ui-tabs-anchor {
     padding: 0;
     color: darkgray;
     text-decoration: none;
+    color: #fff;
 }
 
 .kotlin-info {
@@ -113,7 +116,7 @@
     height: 100%;
     font-size: 14px;
     padding: 0 10px;
-    color: #000000;
+    color: #fff;
 }
 
 #webdemo-kotlin-version-button {
@@ -130,7 +133,7 @@
     float: left;
     font-size: 12px;
     padding: 10px;
-    color: #9e9e9e;
+    color: #fff;
 }
 
 .consoleOutput {
@@ -153,7 +156,7 @@
 #typeCheckingWrapper .text {
     display: inline-block;
     font-size: 12px;
-    color: #222222;
+    color: #fff;
 }
 
 .tab-space {

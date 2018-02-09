@@ -131,12 +131,8 @@
     -o-transition: 0.3s all;
     transition: 0.3s all;
     position: relative;
-    top: 12px;
+    top: 5px;
     float: left;
-    width: 103px;
-    height: 22px;
-    background: url("/static/images/cexplore.png") no-repeat;
-    font-size: 0;
     text-decoration: none; }
 @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
     .global-header-logo {

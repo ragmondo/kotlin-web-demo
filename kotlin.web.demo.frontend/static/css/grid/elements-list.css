@@ -19,6 +19,7 @@
     border-right: 1px solid #969696;
     width: 240px;
     position: relative;
+    background-color:rgba(32,41,43,1)
 }
 
 .examples-list {

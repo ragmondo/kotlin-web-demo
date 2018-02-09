@@ -24,12 +24,13 @@
 #grid-nav {
     overflow: hidden;
     white-space: nowrap;
-    background: #d7d7d7;
+    background: #fff;
     font-size: 14px;
     border-bottom: 1px solid #969696;
     border-top-right-radius: 4px;
     border-top-left-radius: 4px;
     min-height: 21px;
+    
 }
 
 .grid-nav-item {
@@ -148,6 +149,7 @@
 
 #editordiv .CodeMirror-scroll {
     height: 100%;
+    background-color: rgba(32,41,43,1);
 }
 
 #editordiv .CodeMirror-lines {
@@ -165,7 +167,7 @@
 
 .errors-and-warnings-gutter {
     width: 14px;
-    margin-left: 2px;
+    background-color: rgba(32,41,43,1);
 }
 
 .ERRORgutter {
@@ -283,6 +285,7 @@
 
 .CodeMirror-gutter-wrapper {
     height: auto !important;
+    background-color: rgba(32,41,43,1);
 }
 
 .task-help {
@@ -305,7 +308,7 @@
 }
 
 .task-help-wrapper {
-  /*  background-color: white; */
+    background-color: white;
     padding-bottom: 4px;
 }
 
