@@ -16,7 +16,7 @@
 
 #toolbox {
 /*    background-color: #e8e8e8; */
-    background-color: darkgray;
+    background-color: rgba(32,41,43,1);
     line-height: 1;
     width: 100%;
     overflow: hidden;
@@ -105,7 +105,7 @@
 
 .argumentsButtonWrapper .text {
     font-size: 12px;
-    color: #585858;
+    color: #fff;
 }
 
 #argumentsButton {
@@ -116,8 +116,7 @@
 }
 
 #argumentsButton.active {
-    background: white;
-    border: 1px solid #969696;
+    background: rgb(57, 63, 65);
     border-bottom: 0;
     border-top-left-radius: 3px;
     border-top-right-radius: 3px;
@@ -157,11 +156,12 @@
     outline: none;
     line-height: 1;
     border: 1px solid #969696;
-    background-color: #f9f9f9;
+    background-color: rgb(57, 63, 65);
     padding: 4px;
     font-size: 12px;
     border-radius: 3px;
 }
+
 
 .ui-selectmenu-button .ui-icon.selectmenu-arrow-icon {
     position: static;
@@ -176,6 +176,7 @@
     padding: 0;
     line-height: 1;
     display: inline;
+    color: #fff;
 }
 
 .ui-selectmenu-menu {
@@ -216,11 +217,12 @@
     margin-top: -1px;
     font-size: 14px;
     border: 0;
-    border-top: 1px solid #969696;
+    background-color: rgb(57, 63, 65);
     padding: 5px 10px 5px 10px;
     outline: none;
     box-sizing: border-box;
     width: 100%;
+    color: #fff;
 }
 
 input::-webkit-input-placeholder {

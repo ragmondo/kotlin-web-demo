@@ -37,10 +37,14 @@ html {
 
 body{
     height: 100%;
-    color: #000000;
+    color: #fff;
  /*   color: #333333; */
     font-size: 14px;
-    background-color: #bbbbbb;
+    background: rgb(67,80,82);
+    background: -moz-radial-gradient(center, ellipse cover, rgba(67,80,82,1) 0%, rgba(32,41,43,1) 100%);
+    background: -webkit-radial-gradient(center, ellipse cover, rgba(67,80,82,1) 0%,rgba(32,41,43,1) 100%);
+    background: radial-gradient(ellipse at center, rgba(67,80,82,1) 0%,rgba(32,41,43,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#435052', endColorstr='#20292b',GradientType=1 );
 }
 
 a {
